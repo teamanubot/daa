@@ -1,0 +1,16 @@
+@startuml HitungLuasSegitiga
+start
+
+:Masukkan nilai alas;
+:Masukkan nilai tinggi;
+
+if (alas <= 0 atau tinggi <= 0?) then (yes)
+  :Tampilkan "Input tidak valid";
+  stop
+else (no)
+  :Hitung luas = 0.5 * alas * tinggi;
+  :Tampilkan hasil luas;
+endif
+
+stop
+@enduml

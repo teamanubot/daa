@@ -1,0 +1,14 @@
+@startuml HitungLuasSegitiga
+actor Pengguna as User
+
+usecase UC1 as "Masukkan Nilai Alas dan Tinggi"
+usecase UC2 as "Validasi Input"
+usecase UC3 as "Hitung Luas Segitiga"
+usecase UC4 as "Tampilkan Hasil"
+
+User --> UC1
+UC1 --> UC2
+UC2 --> UC3 : Jika valid
+UC2 --> UC1 : Jika tidak valid
+UC3 --> UC4
+@enduml

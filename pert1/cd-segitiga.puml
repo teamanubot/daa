@@ -1,0 +1,8 @@
+@startuml HitungLuasSegitiga
+class Segitiga {
+    - float alas
+    - float tinggi
+    + Segitiga(float alas, float tinggi)
+    + float hitungLuas()
+}
+@enduml
