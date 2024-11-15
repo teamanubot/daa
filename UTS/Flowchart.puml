@@ -1,0 +1,29 @@
+@startuml Flow_Filamen3D
+title Business Flow for Jual-Beli Filamen System
+
+|Customer|
+start
+:Browse Products;
+:Add Products to Cart;
+:Proceed to Checkout and Payment;
+
+|Admin/Staff|
+if (Payment Verified?) then (yes)
+    :Order Received;
+    :Update Order Status to "Processed";
+else (no)
+    :Cancel Order;
+    stop
+endif
+
+:Prepare Shipment;
+:Update Order Status to "Shipped";
+
+|Customer|
+:Receive Order;
+:Provide Product Review;
+
+|Admin|
+:Access Sales and Inventory Reports;
+stop
+@enduml

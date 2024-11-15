@@ -1,0 +1,33 @@
+@startuml UC_Filamen3D
+title Use Case Diagram for Jual-Beli Filamen System
+
+actor "Customer" as customer
+actor "Admin" as admin
+actor "Staff" as staff
+
+rectangle "Jual-Beli Filamen System" {
+    usecase "Browse Products" as UC_Browse
+    usecase "Add to Cart" as UC_AddCart
+    usecase "Checkout and Payment" as UC_Checkout
+    usecase "Manage Products" as UC_ManageProduct
+    usecase "Manage Orders" as UC_ManageOrder
+    usecase "Update Order Status" as UC_UpdateOrder
+    usecase "View Reports" as UC_ViewReports
+    usecase "Provide Review" as UC_Review
+
+    customer --> UC_Browse
+    customer --> UC_AddCart
+    customer --> UC_Checkout
+    customer --> UC_Review
+
+    admin --> UC_ManageProduct
+    admin --> UC_ManageOrder
+    admin --> UC_UpdateOrder
+    admin --> UC_ViewReports
+
+    staff --> UC_ManageProduct
+    staff --> UC_ManageOrder
+    staff --> UC_UpdateOrder
+}
+
+@enduml
