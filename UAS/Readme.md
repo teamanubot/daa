@@ -10,7 +10,7 @@ Tema Studi Kasus: Teknologi dan Inovasi
 
 ---
 
-Untuk informasi lebih lanjut, silakan lihat file [analisis lengkap.pdf](https://github.com/teamanubot/daa/blob/main/UAS/Analisis.pdf).
+Untuk informasi lebih lanjut, silakan lihat file [analisis lengkap.pdf](https://github.com/teamanubot/daa/blob/main/UAS/ANALISIS%20PENGEMBANGAN%20DASHBOARD%20CRUD%20UNTUK%20MANAJEMEN%20DATA%20KARYAWAN%20MENGGUNAKAN%20LARAVEL%20FILAMENT%20DI%20LINGKUNGAN%20WSL%20DAN%20DOCKER.pdf).
 
 ## Penjelasan Untuk file analisis Studi Kasus yang saya buat
 
