@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\ProductCategory;
 
 return new class extends Migration
 {
@@ -15,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('harga', 12, 2);
-            $table->enum('category', ['sepatu', 'celana', 'baju']);
+            $categories = array_column(ProductCategory::cases(), 'value');
+            $table->enum('category', $categories);
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Enums\ProductCategory;
 
 class ProductResource extends Resource
 {
@@ -35,11 +36,9 @@ class ProductResource extends Resource
                 ->label('Harga'),
 
             Forms\Components\Select::make('category')
-                ->options([
-                    'sepatu' => 'Sepatu',
-                    'celana' => 'Celana',
-                    'baju' => 'Baju',
-                ])
+                ->options(
+                    collect(ProductCategory::cases())->mapWithKeys(fn($case) => [$case->value => ucfirst($case->value)])
+                )
                 ->required()
                 ->label('Category'),
             ]);
@@ -50,8 +49,8 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Name')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('harga')->label('Harga')->formatStateUsing(fn ($state) => 'Rp ' . number_format($state, 2, ',', '.'))->sortable()->searchable(query: function ($query, $search) { $query->where('harga', 'like', '%' . preg_replace('/[^0-9]/', '', $search) . '%'); }),
-                Tables\Columns\TextColumn::make('category')->label('Category')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('harga')->label('Harga')->formatStateUsing(fn ($state) => 'Rp ' . number_format($state, 2, ',', '.')),
+                Tables\Columns\TextColumn::make('category')->label('Category')->formatStateUsing(fn ($state) => $state ? ucfirst($state->value ?? $state) : null),
             ])
             ->filters([
                 //
